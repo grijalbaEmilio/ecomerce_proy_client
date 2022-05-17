@@ -1,0 +1,44 @@
+@import '../../scss/index.scss';
+
+
+.container{
+    display: block;
+    margin: auto;
+    background-color: #40454741;
+    border-radius: 15px;
+}
+
+.tab{
+    padding: 10px;
+    
+}
+
+.ant-tabs-tab{
+    width : 50%;
+    padding-left: 10px;
+    color: white;
+}
+
+.ant-tabs-nav-list{
+    width : 100%;
+}
+
+.ant-tabs-content-holder{
+    padding: 40px 0px 10px 0px;
+}
+
+@media (min-width : $media-breackpoint-up-sm){
+    .container{
+        width: 500px;
+    }
+}
+
+@media (min-width : $media-breackpoint-up-md){
+    .container{
+        width: 700px;
+    }
+    .ant-tabs-tab{
+        font-size: 1.5rem;
+    }
+    
+}
