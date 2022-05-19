@@ -1,6 +1,7 @@
 import React from "react";
 
 import newAdmin from "../../../assetts/img/jpg/user1.jpg";
+import user_config from '../../../api/user';
 
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockFilled, MailFilled} from "@ant-design/icons";
@@ -9,10 +10,16 @@ import "./FormsLogin.scss";
 
 export default function signUpForm() {
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    //                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log(values);
+    user_config(values)
   };
 
+  const conectBack = (values)=>{
+    console.log(values);
+  }
+
   return (
+
     <div className="container-form-login">
       <Form
         name="normal_signUp"
@@ -29,7 +36,7 @@ export default function signUpForm() {
           <div className="form-login__content-izq">
             <Form.Item
               className="form-login__item form-login__name"
-              name="name"
+              name="name_user"
               rules={[
                 {
                   required: true,
