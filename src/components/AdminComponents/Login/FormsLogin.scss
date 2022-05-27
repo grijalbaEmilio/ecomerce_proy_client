@@ -71,6 +71,10 @@
     border: 2px solid $info-color;
     color: $font-light;
   }
+  &__check{
+    color: $font-gray;
+    margin: 0 10px 0 10px;
+  }
 }
 
 @media (min-width: $media-breackpoint-up-md) {

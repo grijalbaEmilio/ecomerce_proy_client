@@ -1,14 +1,16 @@
-import React from "react";
-
+import React, { useState } from "react";
 import newAdmin from "../../../assetts/img/jpg/user1.jpg";
 import { Form, Input, Button } from "antd";
-import { LockFilled , MailFilled } from "@ant-design/icons";
+import { LockFilled, MailFilled } from "@ant-design/icons";
+import Toast from "../../Toast";
 
 import "./FormsLogin.scss";
 
-export default function signUpForm() {
+export default function SignUpForm() {
   const onFinish = (values) => {
-    console.log("Received values of form: ", values);
+    console.log("envio");
+    Toast({title:'Error !', message:'Algo se rompió.', mode:'danger'})
+
   };
 
   return (
@@ -86,6 +88,17 @@ export default function signUpForm() {
 
         <Form.Item className="form-login__registro">
           <Button
+            onClick={() => {
+              console.log('hello');
+              return (
+                <Toast>
+                  {{
+                    mode: "danger",
+                    message: "nada pa, todo mal toca que si tatat fiu fau.",
+                  }}
+                </Toast>
+              );
+            }}
             type="primary"
             htmlType="submit"
             className="form-login__button"

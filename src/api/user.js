@@ -1,6 +1,6 @@
 import { basePath, apiVersion } from "./config";
 
-export default function signUpApi(data){
+export async function signUpApi(data) {
   const url = `${basePath}/${apiVersion}/signup`;
   const url2 = `${basePath}/${apiVersion}`;
   /* console.log(url);
@@ -16,14 +16,33 @@ export default function signUpApi(data){
 
   const params2 = {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin": "*"
-    },
-  }
+  };
 
-  return fetch(url2, params2).then((response) => {
-    console.log({ message: response.json() });
-  });
+  return fetch(url, params)
+    .then((response) => {
+      return response.json();
+    })
+    .then((result) => {
+      if (result.user) {
+        return {
+          create_user: true,
+          message: "Usuario creado exitosamente.",
+        };
+      } else {
+        return {
+          create_user: false,
+          message: result.message,
+        };
+      }
+    })
+    .catch((err) => {
+      return {
+        create_user: false,
+        message: err.message,
+      };
+    });
 
+  /* const res = await fetch(url, params)
+  const res2 = await res.json()
+  console.log(res2); */
 }
